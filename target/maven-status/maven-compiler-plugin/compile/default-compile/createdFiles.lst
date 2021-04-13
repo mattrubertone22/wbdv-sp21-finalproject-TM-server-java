@@ -1,0 +1,8 @@
+com/example/models/UserType.class
+com/example/models/User.class
+com/example/models/Team.class
+com/example/models/MatchResults.class
+com/example/services/UserService.class
+com/example/models/Match.class
+App.class
+com/example/repositories/UserRepository.class
