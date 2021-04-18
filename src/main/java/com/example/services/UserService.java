@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.repositories.UserRepository;
 
-import java.util.List;
-
 @Service
 public class UserService {
     @Autowired
@@ -16,9 +14,9 @@ public class UserService {
         return repository.save(user);
     }
 
-    public List<User> findAllUsers() {
-        return repository.findAllUsers();
-    }
+//    public List<User> findAllUsers() {
+//        return repository.findAllUsers();
+//    }
 
     public User findUserById(Long userId) {
         return repository.findUserById(userId);
@@ -27,7 +25,7 @@ public class UserService {
     public Integer updateUsername(Long id, User newUsername) {
         User originalUser = findUserById(id);
 
-        originalUser.setUsername(newUsername.getUsername());
+        originalUser.setUserName(newUsername.getUserName());
 
         repository.save(originalUser);
         return 1;
@@ -45,7 +43,7 @@ public class UserService {
     public Integer updateUserType(Long id, User newUser) {
         User originalUser = findUserById(id);
 
-        originalUser.setType(newUser.getType());
+        originalUser.setTeamMember(newUser.isTeamMember());
 
         repository.save(originalUser);
         return 1;
