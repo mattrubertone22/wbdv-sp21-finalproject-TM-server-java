@@ -19,20 +19,22 @@ public class HttpSessionSetup {
     public User register(
             @PathVariable("username") String username,
             @PathVariable("password") String password,
+            @PathVariable("role") String role,
             HttpSession session) {
         User user = new User();
         user.setPassword(password);
         user.setUserName(username);
+        user.setTeamMember(role);
         session.setAttribute("currentUser", user);
         users.add(user);
         return user;
     }
 
-    @GetMapping("/api/users/profile")
-    public User profile(HttpSession session) {
-        User currentUser = (User) session.getAttribute("currentUser");
-        return currentUser;
-    }
+//    @GetMapping("/api/users/profile")
+//    public User profile(HttpSession session) {
+//        User currentUser = (User) session.getAttribute("currentUser");
+//        return currentUser;
+//    }
 
     @GetMapping("/api/users/logout")
     public void logout (HttpSession session) {

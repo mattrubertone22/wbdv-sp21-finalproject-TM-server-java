@@ -7,9 +7,9 @@ import javax.persistence.*;
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String matchId;
     private Long userId;
-    private String[] participatingTeams;
+    private String[] note;
 
     public Long getUserId() {
         return userId;
@@ -19,20 +19,20 @@ public class Match {
         this.userId = userId;
     }
 
-    public String[] getParticipatingTeams() {
-        return participatingTeams;
+    public String[] getNote() {
+        return note;
     }
 
-    public void setParticipatingTeams(String[] participatingTeams) {
-        this.participatingTeams = participatingTeams;
+    public void setNote(String[] note) {
+        this.note = note;
     }
 
-    public Long getId() {
-        return id;
+    public String getMatchId() {
+        return matchId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setMatchId(String matchId) {
+        this.matchId = matchId;
     }
 
 

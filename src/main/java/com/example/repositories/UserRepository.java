@@ -8,6 +8,12 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Long> {
+    @Query("select user FROM User user WHERE user.userName=:userName")
+    public User findUserByUsername(@Param("userName") String userName);
+
+    @Query("select user FROM User user WHERE user.userName=:userName and user.password=:password")
+    public User findUserByCredentials(@Param("userName") String userName, @Param("password") String password);
+
     @Query("SELECT user FROM User user")
     public List<User> findAllUsers();
 

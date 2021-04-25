@@ -8,9 +8,10 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(length = 1024)
     private String userName;
     private String password;
-    private boolean teamMember;
+    private String role;
 
     public Long getId() {
         return id;
@@ -20,12 +21,12 @@ public class User {
         this.id = id;
     }
 
-    public boolean isTeamMember() {
-        return teamMember;
+    public String isTeamMember() {
+        return role;
     }
 
-    public void setTeamMember(boolean teamMember) {
-        this.teamMember = teamMember;
+    public void setTeamMember(String teamMember) {
+        this.role = teamMember;
     }
 
     public String getUserName() {

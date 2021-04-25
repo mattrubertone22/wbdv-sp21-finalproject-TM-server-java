@@ -1,7 +1,7 @@
 package com.example.controllers;
 
 import com.example.models.User;
-import com.example.repositories.UserRepository;
+import com.example.services.MatchService;
 import com.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
-public class UserController {
+public class MatchController {
     @Autowired
-    UserService service ;
+    MatchService service ;
 
     @PostMapping("/api/login")
     public User login(@RequestBody User credentials,
@@ -68,7 +68,5 @@ public class UserController {
     public User profile(@PathVariable("userId") Long id) {
         return service.findById(id).get();
     }
-
-
 
 }
