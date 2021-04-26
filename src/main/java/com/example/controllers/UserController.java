@@ -14,7 +14,7 @@ public class UserController {
     @Autowired
     UserService service ;
 
-    @PostMapping("/api/login")
+    @PostMapping("/api/users/login")
     public User login(@RequestBody User credentials,
                       HttpSession session) {
         User existingUser = service.findUserByCredentials(
