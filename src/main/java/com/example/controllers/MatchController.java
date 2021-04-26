@@ -5,6 +5,8 @@ import com.example.services.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class MatchController {
@@ -16,6 +18,12 @@ public class MatchController {
         match.setUid(id);
         service.createComment(match);
         return null;
+    }
+
+    @GetMapping("/api/comments/users/{uid}/comments")
+    public List<Match> findCommentByUserId(@PathVariable("uid") Long id) {
+        return service.findCommentByUserId(id);
+
     }
 
 //    @PostMapping("/api/users/signup")

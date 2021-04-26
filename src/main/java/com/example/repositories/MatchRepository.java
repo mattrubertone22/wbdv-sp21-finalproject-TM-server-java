@@ -12,8 +12,8 @@ public interface MatchRepository extends CrudRepository<Match, Long> {
     @Query("select match FROM Match match WHERE match.id=:matchId")
     public Match findCommentByMatchId(@Param("matchId") String matchId);
 
-    @Query("select match FROM Match match WHERE match.uid=:userId")
-    public Match findCommentByUserId(@Param("userId") Long userId);
+    @Query("select match FROM Match match WHERE match.uid=:uid")
+    public List<Match> findCommentByUserId(@Param("uid") Long uid);
 
     @Query("SELECT match FROM Match match")
     public List<Match> findAllMatch();

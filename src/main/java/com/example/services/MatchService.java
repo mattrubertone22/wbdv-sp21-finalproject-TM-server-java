@@ -7,6 +7,7 @@ import com.example.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,6 +17,10 @@ public class MatchService {
 
     public Match createComment(Match comment) {
         return repository.save(comment);
+    }
+
+    public List<Match> findCommentByUserId(Long userId) {
+        return repository.findCommentByUserId(userId);
     }
 //
 ////    public List<User> findAllUsers() {
