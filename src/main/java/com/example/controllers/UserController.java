@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import com.example.models.Match;
 import com.example.models.User;
 import com.example.repositories.UserRepository;
 import com.example.services.UserService;
@@ -68,6 +69,13 @@ public class UserController {
     public User profile(@PathVariable("userId") Long id) {
         return service.findById(id).get();
     }
+
+//    @PostMapping("/api/users/{uid}/comments")
+//    public Match addComment(@PathVariable("uid") Long id, @RequestBody Match match) {
+//        User existingUser = service.findUserById(id);
+//        existingUser.setMatch(match);
+//        return null;
+//    }
 
 
 

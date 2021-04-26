@@ -24,7 +24,7 @@ public class HttpSessionSetup {
         User user = new User();
         user.setPassword(password);
         user.setUserName(username);
-        user.setTeamMember(role);
+        user.setRole(role);
         session.setAttribute("currentUser", user);
         users.add(user);
         return user;

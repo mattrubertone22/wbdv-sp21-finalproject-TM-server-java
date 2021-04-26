@@ -2,37 +2,48 @@ package com.example.models;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table
+@Table(name = "matches")
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String matchId;
-    private Long userId;
-    private String[] note;
+    private Long id;
+    @Column(length = 1024)
+    private Long uid;
+    private Long teamId;
+    private String comment;
 
-    public Long getUserId() {
-        return userId;
+    public Long getTeamId() {
+        return teamId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
     }
 
-    public String[] getNote() {
-        return note;
+    public Long getUid() {
+        return uid;
     }
 
-    public void setNote(String[] note) {
-        this.note = note;
+    public void setUid(Long userId) {
+        this.uid = userId;
     }
 
-    public String getMatchId() {
-        return matchId;
+    public String getComment() {
+        return comment;
     }
 
-    public void setMatchId(String matchId) {
-        this.matchId = matchId;
+    public void setComment(String note) {
+        this.comment = note;
+    }
+
+    public Long getMatchId() {
+        return id;
+    }
+
+    public void setMatchId(Long matchId) {
+        this.id = matchId;
     }
 
 

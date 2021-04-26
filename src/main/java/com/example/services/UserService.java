@@ -53,7 +53,7 @@ public class UserService {
     public Integer updateUserType(Long id, User newUser) {
         User originalUser = findUserById(id);
 
-        originalUser.setTeamMember(newUser.isTeamMember());
+        originalUser.setRole(newUser.getRole());
 
         repository.save(originalUser);
         return 1;

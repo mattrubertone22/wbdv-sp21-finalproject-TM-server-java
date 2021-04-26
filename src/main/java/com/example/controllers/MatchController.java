@@ -1,33 +1,23 @@
 package com.example.controllers;
 
-import com.example.models.User;
+import com.example.models.Match;
 import com.example.services.MatchService;
-import com.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpSession;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class MatchController {
-//    @Autowired
-//    MatchService service ;
-//
-//    @PostMapping("/api/login")
-//    public User login(@RequestBody User credentials,
-//                      HttpSession session) {
-//        User existingUser = service.findUserByCredentials(
-//                credentials.getUserName(),
-//                credentials.getPassword()
-//        );
-//        if(existingUser != null) {
-//            session.setAttribute("profile", existingUser);
-//            return existingUser;
-//        }
-//        return null;
-//    }
-//
+    @Autowired
+    MatchService service;
+
+    @PostMapping("/api/comments/team/{uid}/comments")
+    public Match createComment(@PathVariable("uid") Long id, @RequestBody Match match) {
+        match.setUid(id);
+        service.createComment(match);
+        return null;
+    }
+
 //    @PostMapping("/api/users/signup")
 //    public User signup(@RequestBody User newUser, HttpSession session) {
 //        User existingUser = service.findUserByUsername(newUser.getUserName());
