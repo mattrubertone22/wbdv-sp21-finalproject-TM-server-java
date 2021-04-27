@@ -22,6 +22,10 @@ public class MatchService {
     public List<Match> findCommentByUserId(Long userId) {
         return repository.findCommentByUserId(userId);
     }
+
+    public List<Match> findCommentByTeamId(Long teamId) {
+        return repository.findCommentByTeamId(teamId);
+    }
 //
 ////    public List<User> findAllUsers() {
 ////        return repository.findAllUsers();

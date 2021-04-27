@@ -39,9 +39,9 @@ public class UserController {
         return null;
     }
 
-    @PutMapping("/api/users/profile/{uid}")
+    @PutMapping("/api/users/profile/{id}")
     public Integer updateProfile(
-            @PathVariable("uid") Long id,
+            @PathVariable("id") Long id,
             @RequestBody User user) {
         return service.updateProfile(id, user);
     }

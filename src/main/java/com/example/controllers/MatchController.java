@@ -26,6 +26,12 @@ public class MatchController {
 
     }
 
+    @GetMapping("/api/comments/teams/{teamId}/comments")
+    public List<Match> findCommentByTeamId(@PathVariable("teamId") Long id) {
+        return service.findCommentByTeamId(id);
+
+    }
+
 //    @PostMapping("/api/users/signup")
 //    public User signup(@RequestBody User newUser, HttpSession session) {
 //        User existingUser = service.findUserByUsername(newUser.getUserName());

@@ -17,6 +17,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query("SELECT user FROM User user")
     public List<User> findAllUsers();
 
-    @Query(value = "SELECT user FROM users WHERE id=:uid", nativeQuery = true)
+    @Query(value = "SELECT user FROM User user WHERE id=:uid", nativeQuery = true)
     public User findUserById(@Param("uid") Long userId);
 }
