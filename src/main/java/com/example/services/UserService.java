@@ -32,10 +32,12 @@ public class UserService {
         return repository.findUserById(userId);
     }
 
-    public Integer updateUsername(Long id, User newUsername) {
+    public Integer updateProfile(Long id, User newUser) {
         User originalUser = findUserById(id);
 
-        originalUser.setUserName(newUsername.getUserName());
+        originalUser.setUserName(newUser.getUserName());
+        originalUser.setPassword(newUser.getPassword());
+        originalUser.setRole(newUser.getRole());
 
         repository.save(originalUser);
         return 1;

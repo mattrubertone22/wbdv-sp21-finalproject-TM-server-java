@@ -39,19 +39,13 @@ public class UserController {
         return null;
     }
 
-    @PutMapping("/api/users/{uid}/{userName}")
-    public Integer updateUsername(
+    @PutMapping("/api/users/profile/{uid}")
+    public Integer updateProfile(
             @PathVariable("uid") Long id,
             @RequestBody User user) {
-        return service.updateUsername(id, user);
+        return service.updateProfile(id, user);
     }
 
-    @PutMapping("/api/users/{uid}/{password}")
-    public Integer updatePassword(
-            @PathVariable("uid") Long id,
-            @RequestBody User user) {
-        return service.updatePassword(id, user);
-    }
 
     @PutMapping("/api/users/{uid}/{teamMember}")
     public Integer updateTeamMember(
